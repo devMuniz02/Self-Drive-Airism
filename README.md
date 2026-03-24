@@ -1,8 +1,51 @@
+[![ArXiv](https://img.shields.io/badge/ArXiv-2512.16841-B31B1B?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2512.16841)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-devmuniz-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/devmuniz)
+[![GitHub Profile](https://img.shields.io/badge/GitHub-devMuniz02-181717?logo=github&logoColor=white)](https://github.com/devMuniz02)
+[![Portfolio](https://img.shields.io/badge/Portfolio-devmuniz02.github.io-0F172A?logo=googlechrome&logoColor=white)](https://devmuniz02.github.io/)
+[![Hugging Face](https://img.shields.io/badge/Hugging%20Face-manu02-FFD21E?logoColor=black)](https://huggingface.co/manu02)
+
 # Self-Drive Airism
 
 An autonomous driving simulation project using **AirSim** and **YOLO** for vehicle detection and navigation. This project demonstrates self-driving capabilities with real-time object detection in a simulated environment.
 
-## 🚗 Features
+- **Autonomous Navigation**: Self-driving vehicle control with target waypoint navigation - **Real-time Object Detection**: YOLO-based car and object detection - **Camera Simulation**: Multiple camera perspectives (frontal, driver, reverse, follow) - **GPS/NED Coordinates**: Navigation using geodetic coordinates - **Segmentation**: Vehicle and environment segmentation analysis - **CUDA Support**: GPU acceleration for faster inference
+
+## Overview
+
+A robust lane detection and tracking pipeline for autonomous vehicles in Microsoft AirSim. Utilizing OpenCV to process real-time video feeds from Unreal Engine, this project implements color filtering, perspective transforms (bird's-eye view), and polynomial fitting to identify lane boundaries and calculate curvature for steering control.
+
+## Repository Structure
+
+| Path | Description |
+| --- | --- |
+| `assets/` | Images, figures, or other supporting media used by the project. |
+| `scripts/` | Top-level project directory containing repository-specific resources. |
+| `utils/` | Reusable helper modules and shared utility functions. |
+| `.gitignore` | Top-level file included in the repository. |
+| `README.md` | Primary project documentation. |
+| `requirements.txt` | Python dependency specification for local setup. |
+
+## Getting Started
+
+1. Clone the repository.
+
+   ```bash
+   git clone https://github.com/devMuniz02/Self-Drive-Airism.git
+   cd Self-Drive-Airism
+   ```
+
+2. Prepare the local environment.
+
+Install Python dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+3. Run or inspect the project entry point.
+
+Use the project-specific scripts or notebooks in the repository root to run the workflow.
+
+## Features
 
 - **Autonomous Navigation**: Self-driving vehicle control with target waypoint navigation
 - **Real-time Object Detection**: YOLO-based car and object detection
@@ -11,7 +54,28 @@ An autonomous driving simulation project using **AirSim** and **YOLO** for vehic
 - **Segmentation**: Vehicle and environment segmentation analysis
 - **CUDA Support**: GPU acceleration for faster inference
 
-## 📋 Project Structure
+## Installation Troubleshooting
+
+If you encounter issues with `airsim` installation:
+
+1. Ensure Visual C++ redistributables are installed (Windows)
+2. Update pip: `python -m pip install --upgrade pip`
+3. Try installing with verbose output: `pip install -v airsim`
+4. Check system compatibility with: `python utils/check_cuda.py`
+
+## Usage Examples
+
+### Basic Self-Driving
+```python
+python scripts/selfdrivefinal.py
+```
+
+### With Arguments
+```python
+python scripts/selfdrivefinal.py --camera frontal --vehicle car_0
+```
+
+## Project Structure
 
 ```
 Self-Drive-Airism/
@@ -33,7 +97,7 @@ Self-Drive-Airism/
 └── README.md                   # This file
 ```
 
-## 🔧 Requirements
+## Requirements
 
 ### Prerequisites
 - Python 3.8+
@@ -63,7 +127,7 @@ pip install -r requirements.txt
 - `tqdm` - Progress bars
 - `yacs` - Configuration management
 
-## 🚀 Quick Start
+## Quick Start
 
 1. **Setup Environment**
    ```bash
@@ -85,7 +149,7 @@ pip install -r requirements.txt
    python utils/seefilters.py    # View filtered results
    ```
 
-## 📝 Script Descriptions
+## Script Descriptions
 
 ### Main Scripts (`scripts/`)
 - **selfdrivefinal.py**: Production-ready self-driving implementation with object detection
@@ -99,7 +163,7 @@ pip install -r requirements.txt
 - **listcars.py**: List available vehicles in simulation
 - **list_objects.py**: Detect and list objects in scene
 
-## ⚙️ Configuration
+## ️ Configuration
 
 Main configuration in `selfdrivefinal.py`:
 ```python
@@ -116,43 +180,3 @@ TARGET_X = 595.63   # North
 TARGET_Y = -258.19  # East
 TARGET_Z = -0.68    # Down
 ```
-
-## 🎯 Usage Examples
-
-### Basic Self-Driving
-```python
-python scripts/selfdrivefinal.py
-```
-
-### With Arguments
-```python
-python scripts/selfdrivefinal.py --camera frontal --vehicle car_0
-```
-
-## 📦 Installation Troubleshooting
-
-If you encounter issues with `airsim` installation:
-
-1. Ensure Visual C++ redistributables are installed (Windows)
-2. Update pip: `python -m pip install --upgrade pip`
-3. Try installing with verbose output: `pip install -v airsim`
-4. Check system compatibility with: `python utils/check_cuda.py`
-
-## 🏗️ Development Status
-
-- ✅ Object detection (YOLO)
-- ✅ Vehicle control and navigation
-- ✅ Multi-camera support
-- ✅ GPU acceleration
-- 🔄 Advanced path planning
-- 🔄 Obstacle avoidance
-
-## 📚 Resources
-
-- [AirSim Documentation](https://microsoft.github.io/AirSim/)
-- [YOLOv8 Documentation](https://docs.ultralytics.com/)
-- [OpenCV Documentation](https://docs.opencv.org/)
-
----
-
-**Note**: This project requires an active AirSim simulator instance running on your system.
